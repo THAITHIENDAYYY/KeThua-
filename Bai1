@@ -1,41 +1,48 @@
 class ChuNhat {
-  protected double dai, rong;
+    protected int dai, rong;
 
-  public ChuNhat(double dai, double rong) {
-    this.dai = dai;
-    this.rong = rong;
-  }
+    public ChuNhat(int dai, int rong) {
+        this.dai = dai;
+        this.rong = rong;
+    }
 
-  public void xuat() {
-    System.out.println("Chieu dai: " + dai);
-    System.out.println("Chieu rong: " + rong);
-  }
+    public void xuat() {
+        System.out.println("Hinh chu nhat co chieu dai la " + dai + " va chieu rong la " + rong);
+        System.out.println("Chu vi cua hinh chu nhat la " + tinhChuVi() + " va dien tich la " + tinhDienTich());
+    }
+
+    public int tinhChuVi() {
+        return 2 * (dai + rong);
+    }
+
+    public int tinhDienTich() {
+        return dai * rong;
+    }
 }
 
 class Vuong extends ChuNhat {
-  private double canh;
+    private int canh;
 
-  public Vuong(double canh) {
-    super(canh, canh);
-    this.canh = canh;
-  }
+    public Vuong(int canh) {
+        super(canh, canh);
+        this.canh = canh;
+    }
 
-  @Override
-  public void xuat() {
-    System.out.println("Canh: " + canh);
-  }
+    @Override
+    public void xuat() {
+        System.out.println("Hinh vuong co canh la " + canh);
+        System.out.println("Chu vi cua hinh vuong la " + tinhChuVi() + " va dien tich la " + tinhDienTich());
+    }
 }
 
-class Main {
-  public static void main(String[] args) {
-    double dai = 5.0;
-    double rong = 3.0;
-    double canh = 4.0;
+public class Main {
+    public static void main(String[] args) {
+        int dai = 5, rong = 3, canh = 4;
 
-    ChuNhat cn = new ChuNhat(dai, rong);
-    ChuNhat vu = new Vuong(canh);
+        ChuNhat cn = new ChuNhat(dai, rong);
+        Vuong vu = new Vuong(canh);
 
-    cn.xuat();
-    vu.xuat();
-  }
+        cn.xuat();
+        vu.xuat();
+    }
 }
